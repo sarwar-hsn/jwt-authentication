@@ -5,6 +5,7 @@ const { get_session } = require('../db/dummydb')
 function deserialize_user(req, res, next) {
 
     const { access, refresh } = req.cookies;
+    //for the same site application
     if (access) {
         const { payload: a_payload, expired: a_expired } = verify_jwt(access)
         if (a_payload && !a_expired) { //means jwt has been verified
@@ -12,6 +13,8 @@ function deserialize_user(req, res, next) {
             return next();
         }
     }
+
+    
 
 
     if (refresh) { //if access token expired but refresh token is there

@@ -27,3 +27,9 @@ e) You compare:
 By doing this, you ensure:
 - Authenticity: The JWT was created by someone who possesses the private key.
 - Integrity: The JWT has not been modified since it was signed.
+
+
+Generate public private key in .pem format
+------------------------------------------
+1. openssl genpkey -algorithm RSA -out private_key.pem
+2. openssl rsa -pubout -in private_key.pem -out public_key.pem

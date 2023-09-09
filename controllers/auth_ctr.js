@@ -28,12 +28,14 @@ function login_controller(req, res) {
     const refresh_jti = generateUniqueJTI();
     //creating token
     const access = sign_jwt({
-        uid: user_found.id,
+        email:user_found.email,
+        clyid: user_found.id,
     }, ACCESS_TOKEN_TIME, access_jti) // 1 min access token
 
     //creating refresh token
     const refresh = sign_jwt({
-        uid: user_found.id,
+        email:user_found.email,
+        clyid: user_found.id,
     }, REFRESH_TOKEN_TIME, refresh_jti) //5 min refresh token
 
     //setting access token
@@ -57,7 +59,6 @@ function login_controller(req, res) {
         access,
         refresh,
         refresh_session
-
     })
 }
 

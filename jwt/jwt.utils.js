@@ -6,8 +6,8 @@ const fs = require('fs');
 const PRIVATE_KEY = fs.readFileSync(path.join(__dirname, 'private_key.pem'), 'utf8');
 const PUBLIC_KEY = fs.readFileSync(path.join(__dirname, 'public_key.pem'), 'utf8');
 
-const ACCESS_TOKEN_TIME = 10 * (60 * 1000); //(inside bracket second field)
-const REFRESH_TOKEN_TIME = 1 * 60 * (60 * 1000)
+const ACCESS_TOKEN_TIME = 60 //second
+const REFRESH_TOKEN_TIME = 10//second
 
 
 
